@@ -1,0 +1,11 @@
+.edit-form {
+  max-width: 400px;
+  margin: auto;
+}
+
+.completed-task {
+  /* text-decoration: line-through; */
+  color: green;
+  text-transform: uppercase;
+  font-weight: bold;
+}

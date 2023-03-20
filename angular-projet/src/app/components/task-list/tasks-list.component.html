@@ -1,0 +1,33 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Rechercher par nom" [(ngModel)]="name" />
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" (click)="searchname()">
+          Rechercher
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Liste des Tâches :</h4>
+    <ul class="list-group">
+      <ng-container *ngIf="tasks?.length; else noTasks">
+        <li class="list-group-item" *ngFor="let task of tasks; let i = index" [class.active]="i == currentIndex"
+          [ngStyle]="{'color': task.published ? 'green' : 'orange','font-weight': 'bold'}"
+          (click)="setActiveTask(task, i)">
+          {{ task.name }}
+        </li>
+      </ng-container>
+    </ul>
+    <ng-template #noTasks>
+      <p>Aucune tâche prévue</p>
+    </ng-template>
+    <button class="m-3 btn btn-sm btn-danger" *ngIf="tasks?.length" (click)="removeAllTasks()">
+      Tout supprimer
+    </button>
+  </div>
+  <div class="col-md-6">
+    <app-task-details [viewMode]="true" [currentTask]="currentTask"></app-task-details>
+  </div>
+</div>

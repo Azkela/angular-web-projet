@@ -1,0 +1,10 @@
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+}
+
+.list-group-item.active {
+  background-color: #c4d9e5;
+  border: none;
+}
